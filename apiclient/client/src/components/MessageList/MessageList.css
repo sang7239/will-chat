@@ -1,0 +1,15 @@
+.message-list-container {
+  padding: 10px;
+  padding-bottom: 70px;
+}
+#controls {
+  text-align: right;
+}
+
+#controls svg {
+  fill: gray;
+}
+
+#controls svg:hover{
+  fill: lightgray;
+}

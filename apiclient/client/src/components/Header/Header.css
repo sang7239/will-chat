@@ -1,0 +1,25 @@
+#header img {
+    height: 120px;
+    width: 230px;
+}
+#header {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+}
+svg {
+    fill: #5cd3b4;
+    padding: 5px;
+}
+
+svg:hover {
+    fill: #41cba9;
+}
+
+#header > .signup-form {
+    padding: 0px;
+}
+#logo {
+    text-align: center;
+}
+

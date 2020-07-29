@@ -1,0 +1,15 @@
+.toolbar-button {
+  color: #60d4b4;
+  font-size: 28px;
+  transition: all 0.1s;
+}
+
+.toolbar-button:hover {
+  cursor: pointer;
+  color: #60d4b4;
+}
+
+.toolbar-button:active {
+  color: #60d4b4;
+  opacity: 0.25;
+}
