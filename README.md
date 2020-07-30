@@ -1,5 +1,5 @@
 # will-chat
-![home_page](imgs/Signup.png = 100x20) <!-- .element height="5%" -->!
+![home_page](imgs/Signup.png =100x20) <!-- .element height="5%" -->
 
 
 ## Overview
