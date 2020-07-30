@@ -1,5 +1,5 @@
 # will-chat
-![home_page](imgs/Signup.png) <!-- .element height="10%" -->
+![home_page](imgs/Signup.png) <!-- .element height="5%" -->
 
 ## Overview
 Will-chat is a messenger app that resembles popular communication services such as slack/microsoft teams/discord etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
@@ -17,8 +17,8 @@ Redis for session tokens for authenticating users.
 
 ## Authentication
 
-![Signup_page](imgs/Signup.png) <!-- .element height="40%" width="40%" -->
-![Login_page] (imgs/Login.png) <!-- .element height="40%" width="40%" -->
+![Signup_page](imgs/Signup.png) <!-- .element height="5%" -->
+![Login_page] (imgs/Login.png) <!-- .element height="5%" -->
 
 ### Sessions Library
 
