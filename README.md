@@ -1,6 +1,5 @@
 # will-chat
-![home_page](imgs/Signup.png =100x20) <!-- .element height="5%" -->
-
+![home_page]<img src="imgs/Signup.png" align="left" height="48" width="48" >
 
 ## Overview
 Will-chat is a messenger app that resembles popular communication services such as slack/microsoft teams/discord etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
