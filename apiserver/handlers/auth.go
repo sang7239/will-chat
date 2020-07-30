@@ -44,7 +44,7 @@ func (ctx *Context) UserHandler(w http.ResponseWriter, r *http.Request) {
 			User:       user,
 		}
 		if _, err := sessions.BeginSession(ctx.SessionKey, ctx.SessionStore, state, w); err != nil {
-			http.Error(w, "Unable to begin session for the user", http.StatusInternalServerError)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		Respond(w, user, "application/json; charset=utf-8")

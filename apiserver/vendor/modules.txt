@@ -1,0 +1,29 @@
+# github.com/gorilla/websocket v1.4.2
+## explicit
+github.com/gorilla/websocket
+# github.com/patrickmn/go-cache v2.1.0+incompatible
+## explicit
+github.com/patrickmn/go-cache
+# golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+## explicit
+golang.org/x/crypto/bcrypt
+golang.org/x/crypto/blowfish
+# golang.org/x/net v0.0.0-20200707034311-ab3426394381
+## explicit
+golang.org/x/net/html
+golang.org/x/net/html/atom
+# gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
+## explicit
+gopkg.in/mgo.v2
+gopkg.in/mgo.v2/bson
+gopkg.in/mgo.v2/internal/json
+gopkg.in/mgo.v2/internal/sasl
+gopkg.in/mgo.v2/internal/scram
+# gopkg.in/redis.v5 v5.2.9
+## explicit
+gopkg.in/redis.v5
+gopkg.in/redis.v5/internal
+gopkg.in/redis.v5/internal/consistenthash
+gopkg.in/redis.v5/internal/hashtag
+gopkg.in/redis.v5/internal/pool
+gopkg.in/redis.v5/internal/proto

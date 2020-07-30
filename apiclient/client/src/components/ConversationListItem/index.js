@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext, Component} from 'react';
-import shave from 'shave';
 
 import './ConversationListItem.css';
 

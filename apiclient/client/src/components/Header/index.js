@@ -20,7 +20,7 @@ export default class Header extends Component {
     }
     handleLogOut = (event, auth, removeAuth) => {
         event.preventDefault();
-        Axios.delete("https://localhost:4000/v1/sessions/mine", {
+        Axios.delete("https://api.will-hwang.me/v1/sessions/mine", {
             headers: {
                 Authorization: auth.token
             }
@@ -39,13 +39,12 @@ export default class Header extends Component {
         this.first.value = "";
         this.last.value = "";
         this.setState({firstname: "", lastname: "", message: "", color: ""});
-        Axios.get("https://localhost:4000/v1/users/me", {
+        Axios.get("https://api.will-hwang.me/v1/users/me", {
             headers: {
                 Authorization: auth.token
             }
         }).then(result => {
             if (result.status == 200) {
-                console.log(result.data);
                 this.setState({firstname: result.data.firstName, lastname: result.data.lastName});
             }
         }).catch(e => {
@@ -57,7 +56,7 @@ export default class Header extends Component {
         event.preventDefault();
         Axios({
             method: 'PATCH', 
-            url: "https://localhost:4000/v1/users/me",
+            url: "https://api.will-hwang.me/v1/users/me",
             headers: {
                 Authorization: auth.token
             },

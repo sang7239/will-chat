@@ -20,7 +20,7 @@ export default class Admin extends Component {
     }
     componentDidMount() {
         const {auth} = this.context;
-        Axios.get("https://localhost:4000/v1/users/me", {
+        Axios.get("https://api.will-hwang.me/v1/users/me", {
             headers: {
                 Authorization: auth.token
             }

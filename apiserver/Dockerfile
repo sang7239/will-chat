@@ -1,5 +1,5 @@
-FROM scratch
-ADD ca-certificates.crt /etc/ssl/certs/
-ADD apiserver apiserver
+FROM alpine
+RUN apk add --no-cache ca-certificates
+COPY apiserver /apiserver
 EXPOSE 80
 ENTRYPOINT ["/apiserver"]

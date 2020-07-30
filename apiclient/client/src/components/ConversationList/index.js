@@ -24,7 +24,7 @@ export default class ConversationList extends Component {
 
     componentDidMount() {
       const {auth} = this.context
-      axios.get('https://localhost:4000/v1/channels', 
+      axios.get('https://api.will-hwang.me/v1/channels', 
       {
         headers: {
           "Authorization": auth.token
@@ -48,7 +48,7 @@ export default class ConversationList extends Component {
     e.preventDefault();
     Axios({
       method: 'POST', 
-      url: "https://localhost:4000/v1/channels",
+      url: "https://api.will-hwang.me/v1/channels",
       headers: {
           Authorization: auth.token
       },

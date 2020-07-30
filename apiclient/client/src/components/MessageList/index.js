@@ -26,18 +26,16 @@ export default class MessageList extends Component {
     }
     this.update = this.update.bind(this);
   }
-  ws = new WebSocket("wss://localhost:4000/v1/websocket")
+  ws = new WebSocket("wss://api.will-hwang.me/v1/websocket")
   componentDidMount() {
     const auth = this.context;
     this.ws.onopen = () => {
       // on connecting, do nothing but log it to the console
-      console.log('connected')
     }
 
     this.ws.onmessage = event => {
       // on receiving a message, add it to the list of messages
       let data = JSON.parse(event.data).data
-      console.log(data);
       if (data.channelID == this.state.currentChannel) {
         let msg = {
           author: data.creatorID,
@@ -68,10 +66,9 @@ export default class MessageList extends Component {
     }
 
     this.ws.onclose = () => {
-      console.log('disconnected')
       // automatically try to reconnect on connection loss
       this.setState({
-        ws: new WebSocket("wss://localhost:4000/v1/websocket"),
+        ws: new WebSocket("wss://api.will-hwang.me/v1/websocket"),
       })
     }
     this.scrollToBottom();
@@ -86,14 +83,13 @@ export default class MessageList extends Component {
 
   componentWillReceiveProps(newProps) {
     const {auth} = this.context
-    axios.get('https://localhost:4000/v1/channels/'+ newProps.currentChannel, 
+    axios.get('https://api.will-hwang.me/v1/channels/'+ newProps.currentChannel, 
     {
       headers: {
         "Authorization": auth.token
       }
     }
     ).then(response => {
-        console.log(response);
         let msgs = response.data.map(results => {
           return {
             author: results.creatorID,
@@ -110,7 +106,7 @@ export default class MessageList extends Component {
 
   update = (message) => {
     const {auth} = this.context
-    axios.get('https://localhost:4000/v1/channels/'+ this.state.currentChannel, 
+    axios.get('https://api.will-hwang.me/v1/channels/'+ this.state.currentChannel, 
     {
       headers: {
         "Authorization": auth.token
@@ -134,7 +130,7 @@ export default class MessageList extends Component {
   deleteChannel = (e) => {
     const {auth} = this.context
     e.preventDefault();
-    axios.delete("https://localhost:4000/v1/channels/" + this.state.currentChannel, {
+    axios.delete("https://api.will-hwang.me/v1/channels/" + this.state.currentChannel, {
         headers: {
             Authorization: auth.token
         }
@@ -152,7 +148,7 @@ export default class MessageList extends Component {
     e.preventDefault();
     axios({
         method: 'PATCH', 
-        url: "https://localhost:4000/v1/channels/" + this.state.currentChannel,
+        url: "https://api.will-hwang.me/v1/channels/" + this.state.currentChannel,
         headers: {
             Authorization: auth.token
         },
@@ -176,7 +172,7 @@ export default class MessageList extends Component {
   addUserToChannel = (e) => {
     const {auth} = this.context
     e.preventDefault();
-    axios.get('https://localhost:4000/v1/users/'+ this.userName.value, 
+    axios.get('https://api.will-hwang.me/v1/users/'+ this.userName.value, 
     {
       headers: {
         "Authorization": auth.token
@@ -185,7 +181,7 @@ export default class MessageList extends Component {
     ).then(response => {
       axios({
         method: 'LINK', 
-        url: "https://localhost:4000/v1/channels/" + this.state.currentChannel,
+        url: "https://api.will-hwang.me/v1/channels/" + this.state.currentChannel,
         headers: {
             Authorization: auth.token,
             Link: response.data
@@ -203,7 +199,7 @@ export default class MessageList extends Component {
   removeUserFromChannel = (e) => {
     const {auth} = this.context
     e.preventDefault();
-    axios.get('https://localhost:4000/v1/users/'+ this.removeName.value, 
+    axios.get('https://api.will-hwang.me/v1/users/'+ this.removeName.value, 
     {
       headers: {
         "Authorization": auth.token
@@ -212,19 +208,17 @@ export default class MessageList extends Component {
     ).then(response => {
       axios({
         method: 'UNLINK', 
-        url: "https://localhost:4000/v1/channels/" + this.state.currentChannel,
+        url: "https://api.will-hwang.me/v1/channels/" + this.state.currentChannel,
         headers: {
             Authorization: auth.token,
             Link: response.data
         },
       }).then(result => {
-          console.log(result);
           if (result.status == 200) {
             this.setState({message: result.data, color: "green"});
           }
       }).catch(e => {
           this.setState({message: e.message, color: "red"});
-          console.log(e);
       })
     });
   }

@@ -17,7 +17,7 @@ export default class Compose extends Component {
     if (e.keyCode == 13) {
       Axios({
         method: 'POST', 
-        url: "https://localhost:4000/v1/messages",
+        url: "https://api.will-hwang.me/v1/messages",
         headers: {
             Authorization: auth.token
         },
@@ -29,7 +29,6 @@ export default class Compose extends Component {
         }
       }).then(result => {
           if (result.status == 200) {
-            console.log(result.data);
             this.props.update(JSON.stringify(result.data));
           }
       }).catch(e => {

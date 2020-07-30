@@ -24,12 +24,11 @@ export default class Messenger extends Component{
     updateChannel = (channel, channelName) => {
       const {auth} = this.context;
       this.setState({currentChannel: channel, currentChannelName: channelName});
-      axios.get("https://localhost:4000/v1/channelInfo/" + channel, {
+      axios.get("https://api.will-hwang.me/v1/channelInfo/" + channel, {
             headers: {
                 Authorization: auth.token
             }
         }).then(result => {
-          console.log(result.data.creatorID);
             if (result.status == 200) {
               if (result.data.creatorID == this.props.currentUserID) {
                 this.setState({isChannelCreator: true});

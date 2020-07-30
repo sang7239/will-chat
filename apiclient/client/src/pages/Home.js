@@ -18,7 +18,7 @@ class Home extends Component {
     }
     handleSignUp = (event) => {
         event.preventDefault();
-        axios.post("https://localhost:4000/v1/users",  {
+        axios.post("https://api.will-hwang.me/v1/users",  {
             email: this.email.value,
             password: this.password.value,
             passwordConf: this.passwordConf.value,
@@ -42,7 +42,7 @@ class Home extends Component {
     }
     handleLogIn = (event, auth, setAuth) => {
         event.preventDefault();
-        axios.post("https://localhost:4000/v1/sessions",  {
+        axios.post("https://api.will-hwang.me/v1/sessions",  {
             email: this.loginemail.value,
             password: this.loginpass.value
         }).then(result => {
