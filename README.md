@@ -24,7 +24,7 @@ Redis for session tokens for authenticating users.
 <br/><br/>
 <img src="imgs/Signup.png" align="left" height="400" width="250" >
 <br/><br/>
-<img src="imgs/Login.png" align="left" height="150" width="400" >
+<img src="imgs/Login.png" align="left" height="250" width="400" >
 <br/><br/>
 
 ### Sessions Library
@@ -47,7 +47,7 @@ Sign-Out redirects to main page of the app
 
 
 ## Channels/Messages
-<img src="imgs/Channels.png" align="left" height="600" width="100" >
+<img src="imgs/Channels.png" align="left" height="400" width="250" >
 <img src="imgs/Chat.png" align="left" height="400" width="400" >
 
 
