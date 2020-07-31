@@ -65,8 +65,8 @@ To get a local copy up and running follow these simple example steps.
 ### Sessions Library
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
+*
+```go
 sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
 redisstore.go: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
 session.go: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
