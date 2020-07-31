@@ -39,16 +39,38 @@ session.go: a set of package-level functions for beginning sessions, getting ses
 
 ### Sign-Up, Sign-In, Sign-Out
 
-Sign-Up sends a POST request for a new user to be stored
+Sign-Up requests for a new user to be stored in the User Collection
 
-Sign-In authenticates users based on email/password and assigns a new session id for the authenticated user
+Sign-In authenticates users based on email/password and assigns a new session id for the authenticated user, then redirects to main page
 
-Sign-Out redirects to main page of the app
+Sign-Out removes session id from the current user, then redirects to sign up page of the app
 
 
 ## Channels/Messages
 <img src="imgs/Channels.png" align="left" height="400" width="200" >
+
 <br><br/>
+Supported Functionalities:
+
+Get all channels a given user is allowed to see (i.e., chanells the user is a member of, as well as all public channels)
+Insert a new channel
+
+Get the most recent N messages posted to a particular channel
+
+Update a channel's Name and Description
+
+Delete a channel, as well as all messages posted to that channel
+
+Insert a new message
+
+### Added functionalities for private channels:
+
+Add a user to a channel's Members list
+
+Remove a user from a channel's Members list
+
+
+Every 
 <img src="imgs/Chat.png" align="left" height="400" width="400" >
 <br><br/>
 
