@@ -1,10 +1,9 @@
 # will-chat
-![Home](imgs/Home.png){:height="200px" width="200px"}
+<img src="imgs/Home.png" align="left" height="400" width="400" >
 
 ## Overview
 Will-chat is a messenger app that resembles popular communication services such as slack/microsoft teams/discord etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
 
-\n
 
 ### Front-End
 React.js
@@ -16,25 +15,18 @@ MongoDB for users, channels, and messages collections
 
 Redis for session tokens for authenticating users. 
 
-\n
 
 ## Authentication
 
-\n
 <img src="imgs/Signup.png" align="left" height="400" width="250" >
-\n
 <img src="imgs/Login.png" align="left" height="250" width="400" >
-\n
 
 ### Sessions Library
-
-\n
 
 sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
 redisstore.go: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
 session.go: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions.
 
-\n
 
 ### Sign-Up, Sign-In, Sign-Out
 
@@ -48,8 +40,7 @@ Sign-Out removes session id from the current user, then redirects to sign up pag
 ## Channels/Messages
 <img src="imgs/Channels.png" align="left" height="400" width="200" >
 
-\n
-Supported Functionalities:
+### Supported Functionalities:
 
 Get all channels a given user is allowed to see (i.e., chanells the user is a member of, as well as all public channels)
 Insert a new channel
@@ -69,7 +60,6 @@ Add a user to a channel's Members list
 Remove a user from a channel's Members list
 
 <img src="imgs/Chat.png" align="left" height="400" width="400" >
-\n
 
 
 
