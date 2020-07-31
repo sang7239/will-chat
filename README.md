@@ -1,10 +1,4 @@
 
-### Sessions Library
-
-sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
-redisstore.go: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
-session.go: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions.
-
 
 ### Sign-Up, Sign-In, Sign-Out
 
@@ -64,13 +58,11 @@ To get a local copy up and running follow these simple example steps.
 
 ### Sessions Library
 
-This is an example of how to list things you need to use the software and how to install them.
-*
-```go
-sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
-redisstore.go: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
-session.go: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
-```
+The apiserver/sessions directory contains files for a reusable sessions library that provides digitally-signed session IDs, as well as two different session state stores: one backed by an in-memory cache, and one backed by a redis server
+
+`sessionid.go`: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
+`redisstore.go`: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
+`session.go`: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
 
 ### Sign-Up, Sign-In, Sign-Out
 
