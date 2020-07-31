@@ -1,9 +1,9 @@
 
 <!-- ABOUT THE PROJECT -->
-## Overview
-
+# WillChat
 ![Home](imgs/Home.png)
 
+## Overview
 Will-chat is a messenger app that resembles popular communication services such as [slack](https://slack.com/), [microsoft teams](https://www.microsoft.com/en-us/microsoft-365/microsoft-teams/group-chat-software), [discord](https://discord.com/new) etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
 
 ### Built With
@@ -12,8 +12,6 @@ Will-chat is a messenger app that resembles popular communication services such 
 * [Bootstrap](https://getbootstrap.com/)
 * [MongoDB](https://www.mongodb.com/)
 * [Redis](https://redis.io/)
-
-
 
 
 <!-- GETTING STARTED -->
@@ -33,6 +31,8 @@ The apiserver/sessions directory contains files for a reusable sessions library 
 `session.go`: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
 
 ### Sign-Up, Sign-In, Sign-Out
+
+<img src="imgs/Signup.png" width=200 align=right>
 
 `UsersHandler()`: allows new users to sign-up (POST) or returns all users
 
@@ -56,6 +56,8 @@ The request method must be "POST"
 + Begin a new session
 + Respond to the client with the models.User struct encoded as a JSON object
 
+<img src="imgs/Login.png" width=200 align=right>
+
 `SessionsMineHandler()`: allows authenticated users to sign-out
 The request method must be "DELETE"
 + End the session
@@ -66,6 +68,8 @@ The request method must be "DELETE"
 
 
 ## Channels
+
+<img src="imgs/Channels.png" width=200 align=right>
 
 `ChannelsHandler()`: This will handle all requests made to the /v1/channels path.
 
@@ -86,15 +90,17 @@ The request method must be "DELETE"
 
 ## Messages
 
+<img src="imgs/Chat.png" width=200 align=right>
+
 `MessagesHandler()`: This will handle all requests made to the /v1/messages path. What you do will depend on the request method.
 
 + `POST`: insert the new message, and respond by writing the newly-inserted Message to the response.
 
 ### Added functionalities for private channels:
 
-Add a user to a channel's Members list
++ Add a user to a channel's Members list
 
-Remove a user from a channel's Members list
++ Remove a user from a channel's Members list
 
 <!-- CONTRIBUTING -->
 ## Contributing
