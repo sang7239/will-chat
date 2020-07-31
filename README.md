@@ -1,10 +1,4 @@
 
-
-## Authentication
-
-<img src="imgs/Signup.png" align="left" height="400" width="250" >
-<img src="imgs/Login.png" align="left" height="250" width="400" >
-
 ### Sessions Library
 
 sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
@@ -45,54 +39,12 @@ Remove a user from a channel's Members list
 
 <img src="imgs/Chat.png" align="left" height="400" width="400" >
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 ![Home](imgs/Home.png)
 
-Will-chat is a messenger app that resembles popular communication services such as slack/microsoft teams/discord etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
+Will-chat is a messenger app that resembles popular communication services such as [slack](https://slack.com/),[microsoft teams](https://www.microsoft.com/en-us/microsoft-365/microsoft-teams/group-chat-software),[discord](https://discord.com/new) etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
 
 ### Built With
 * [GO](https://golang.org/)
@@ -105,20 +57,22 @@ Will-chat is a messenger app that resembles popular communication services such 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Authentication
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Sessions Library
 
 This is an example of how to list things you need to use the software and how to install them.
 * npm
 ```sh
-npm install npm@latest -g
+sessionid.go: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
+redisstore.go: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
+session.go: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
 ```
 
-### Installation
+### Sign-Up, Sign-In, Sign-Out
 
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
