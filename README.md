@@ -1,44 +1,10 @@
 
-
-### Sign-Up, Sign-In, Sign-Out
-
-Sign-Up requests for a new user to be stored in the User Collection
-
-Sign-In authenticates users based on email/password and assigns a new session id for the authenticated user, then redirects to main page
-
-Sign-Out removes session id from the current user, then redirects to sign up page of the app
-
-
-## Channels/Messages
-<img src="imgs/Channels.png" align="left" height="400" width="200" >
-
-### Supported Functionalities:
-
-Get all channels a given user is allowed to see (i.e., chanells the user is a member of, as well as all public channels)
-Insert a new channel
-
-Get the most recent N messages posted to a particular channel
-
-Update a channel's Name and Description
-
-Delete a channel, as well as all messages posted to that channel
-
-Insert a new message
-
-### Added functionalities for private channels:
-
-Add a user to a channel's Members list
-
-Remove a user from a channel's Members list
-
-<img src="imgs/Chat.png" align="left" height="400" width="400" >
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Overview
 
 ![Home](imgs/Home.png)
 
-Will-chat is a messenger app that resembles popular communication services such as [slack](https://slack.com/),[microsoft teams](https://www.microsoft.com/en-us/microsoft-365/microsoft-teams/group-chat-software),[discord](https://discord.com/new) etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
+Will-chat is a messenger app that resembles popular communication services such as [slack](https://slack.com/), [microsoft teams](https://www.microsoft.com/en-us/microsoft-365/microsoft-teams/group-chat-software), [discord](https://discord.com/new) etc. WillChat users can create public/private channels, in which public channels are accessible to all WillChat users, whereas only the specified users can be added to private channels by the channel creator. The service implements authentication, session management and notification features. 
 
 ### Built With
 * [GO](https://golang.org/)
@@ -61,25 +27,74 @@ To get a local copy up and running follow these simple example steps.
 The apiserver/sessions directory contains files for a reusable sessions library that provides digitally-signed session IDs, as well as two different session state stores: one backed by an in-memory cache, and one backed by a redis server
 
 `sessionid.go`: generates a cryptographically-random, digitally-signed session ID using bcrypt package in the standard GO Library.
+
 `redisstore.go`: a session store backed by a redis database. This implements the abstract Store interface that is defined in store.go.
+
 `session.go`: a set of package-level functions for beginning sessions, getting session IDs and state from an HTTP request, and ending sessions
 
 ### Sign-Up, Sign-In, Sign-Out
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+`UsersHandler()`: allows new users to sign-up (POST) or returns all users
 
+If the request method is "POST":
++ Decode the request body into a models.NewUser struct
++ Validate the models.NewUser
++ Ensure there isn't already a user in the UserStore with the same email address
++ Ensure there isn't already a user in the UserStore with the same user name
++ Insert the new user into the UserStore
++ Begin a new session
++ Respond to the client with the models.User struct encoded as a JSON object
+If the request method is "GET":
++ Get all users from the UserStore and write them to the response as a JSON-encoded array
+
+`SessionsHandler()`: allows existing users to sign-in
+
+The request method must be "POST"
++ Decode the request body into a models.Credentials struct
++ Get the user with the provided email from the UserStore; if not found, respond with an http.StatusUnauthorized
++ Authenticate the user using the provided password; if that fails, respond with an http.StatusUnauthorized
++ Begin a new session
++ Respond to the client with the models.User struct encoded as a JSON object
+
+`SessionsMineHandler()`: allows authenticated users to sign-out
+The request method must be "DELETE"
++ End the session
++ Respond to the client with a simple message saying that the user has been signed out
+
+`UsersMeHanlder()`: Get the session state
++ Respond to the client with the session state's User field, encoded as a JSON object
+
+
+## Channels
+
+`ChannelsHandler()`: This will handle all requests made to the /v1/channels path.
+
++ `GET`: get the channels the current user can see and write the returned slice to the response as a JSON-encoded array.
++ `POST`: add the current user to the new channel's Members list, insert the new channel, and write the newly-inserted Channel object to the response
+
+`SpecificChannelHandler()`: This will handle all requests made to the /v1/channels/<channel-id> path. Get the specific channel ID from the last part of the request's URL path 
+  
++ `GET`: if the user is allowed to read messages from this channel (user is a member or the channel is public), get the most recent 500 messages from the specified channel and write those to the response.
+
++ `PATCH`: if the current user is the channel creator, update the specified channel's Name/Description and write the updated Channel object to the response
+
++ `DELETE`: if the current user is the channel creator, delete the specified channel
+
++ `LINK`: if the specified channel is private, add the specified user to the Members list of the current channel.
+
++ `UNLINK`: if the specified channel is private, remove the current user to the Members list of the specified channel.
+
+## Messages
+
+`MessagesHandler()`: This will handle all requests made to the /v1/messages path. What you do will depend on the request method.
+
++ `POST`: insert the new message, and respond by writing the newly-inserted Message to the response.
+
+### Added functionalities for private channels:
+
+Add a user to a channel's Members list
+
+Remove a user from a channel's Members list
 
 <!-- CONTRIBUTING -->
 ## Contributing
