@@ -1,17 +1,23 @@
 # github.com/gorilla/websocket v1.4.2
 ## explicit
 github.com/gorilla/websocket
+# github.com/onsi/ginkgo v1.16.5
+## explicit
+# github.com/onsi/gomega v1.27.1
+## explicit
 # github.com/patrickmn/go-cache v2.1.0+incompatible
 ## explicit
 github.com/patrickmn/go-cache
-# golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
+# golang.org/x/crypto v0.1.0
 ## explicit
 golang.org/x/crypto/bcrypt
 golang.org/x/crypto/blowfish
-# golang.org/x/net v0.0.0-20200707034311-ab3426394381
+# golang.org/x/net v0.7.0
 ## explicit
 golang.org/x/net/html
 golang.org/x/net/html/atom
+# gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+## explicit
 # gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 ## explicit
 gopkg.in/mgo.v2
